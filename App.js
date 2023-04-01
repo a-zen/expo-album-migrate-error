@@ -1,7 +1,16 @@
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import * as MediaLibrary from 'expo-media-library';
 
 export default function App() {
+
+  React.useEffect(() => {
+    (async () => {
+      await MediaLibrary.migrateAlbumIfNeededAsync('testing');
+    })();
+  }, []);
+
   return (
     <View style={styles.container}>
       <Text>Open up App.js to start working on your app!</Text>
